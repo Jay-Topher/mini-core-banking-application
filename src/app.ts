@@ -8,6 +8,7 @@ import path from 'path';
 import fs from 'fs';
 
 import apiRouter from './routes/index';
+import usersRouter from './routes/users';
 import schema from './schema';
 
 const app = express();
@@ -48,6 +49,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/api', apiRouter);
+app.use('/api/v1/users', usersRouter);
 
 app.use(
   '/graphql',

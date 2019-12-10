@@ -1,7 +1,7 @@
 import Users from '../models/users';
 import { iUser } from '../../types';
 
-export async function openAccount(userObj: iUser) {
+export async function addUser(userObj: iUser) {
   const existingUser = await Users.find({
     email: userObj.email,
     userName: userObj.userName,
@@ -18,6 +18,6 @@ export async function openAccount(userObj: iUser) {
   return user.save();
 }
 
-export async function closeAccount(id: string) {
+export async function removeUser(id: string) {
   return Users.findOneAndUpdate({ _id: id }, { deletedAt: new Date() });
 }

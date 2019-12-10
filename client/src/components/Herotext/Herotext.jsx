@@ -1,13 +1,17 @@
 import React from 'react';
 import classes from './Herotext.module.scss';
+import { Link } from 'react-router-dom';
 
 export default function Herotext() {
   return (
     <div className={classes.HeroText}>
       <h2 className={classes.title}>
-        A penny saved is worth two pennies earned <br />. . . after taxes.
+        &quot;A penny saved is worth two pennies earned . . . after taxes.&quot;
       </h2>
-      <button>Get Started</button>
+      <p>Start Saving Today</p>
+      <Link to="/signup">
+        <button>Get Started</button>
+      </Link>
     </div>
   );
 }

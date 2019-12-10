@@ -17,3 +17,11 @@ export async function openAccount(accountObj: iAccount) {
 
   return account.save();
 }
+
+// Close an account
+export async function closeAccount(accountId: string) {
+  return Accounts.findOneAndUpdate(
+    { _id: accountId },
+    { deletedAt: new Date() },
+  );
+}

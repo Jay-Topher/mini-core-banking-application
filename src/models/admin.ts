@@ -21,7 +21,9 @@ const adminSchema = new mongoose.Schema(
 );
 
 adminSchema.pre<AdminSchema>('save', function(next) {
-  this.password = bcrypt.hashSync(this.password, 10);
+  if (this.isModified('password')) {
+    this.password = bcrypt.hashSync(this.password, 10);
+  }
   next();
 });
 

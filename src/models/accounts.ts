@@ -17,7 +17,11 @@ const accountSchema = new mongoose.Schema(
     bvnId: String,
     userId: String,
     accountName: String,
-    accountType: String,
+    accountType: {
+      type: String,
+      enum: ['CURRENT', 'FIXED DEPOSIT', 'SAVINGS'],
+      default: null,
+    },
     accountNumber: { type: String, unique: true },
     accountBalance: Number,
     deletedAt: { type: Date, default: null },

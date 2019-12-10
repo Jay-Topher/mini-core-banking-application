@@ -30,3 +30,9 @@ export type iTransaction = {
   from: string;
   to: string;
 };
+
+export type iAdmin = {
+  userName: string;
+  email: string;
+  password: string;
+};

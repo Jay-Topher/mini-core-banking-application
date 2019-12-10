@@ -1,4 +1,4 @@
-# Express React Template with Typescript
+# Mini-Core Banking App with Typescript
 
 [![CircleCI](https://circleci.com/gh/bondz/node-express-react-ts.svg?style=svg)](https://circleci.com/gh/bondz/node-express-react-ts)
 

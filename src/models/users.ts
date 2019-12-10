@@ -7,8 +7,7 @@ interface UserSchema extends mongoose.Document {
   phoneNumber: string;
   email: string;
   password: string;
-  dob: string;
-  nin: string;
+  isVerified: boolean;
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date;
@@ -22,11 +21,10 @@ const userSchema = new mongoose.Schema(
     email: String,
     phoneNumber: String,
     password: String,
-    dob: String,
-    nin: String,
+    isVerified: Boolean,
     deletedAt: { type: Date, default: null },
   },
   { timestamps: true },
 );
 
-export default mongoose.model<UserSchema>('users', userSchema);
+export default mongoose.model<UserSchema>('Users', userSchema);

@@ -1,0 +1,17 @@
+.HeroImage {
+  flex: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+
+  .laptop {
+    width: 700px;
+    height: 625px;
+
+    img {
+      width: 100%;
+    }
+  }
+}

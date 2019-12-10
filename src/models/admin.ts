@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 interface AdminSchema extends mongoose.Document {
   userName: string;
@@ -18,5 +19,10 @@ const adminSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
+
+adminSchema.pre<AdminSchema>('save', function(next) {
+  this.password = bcrypt.hashSync(this.password, 10);
+  next();
+});
 
 export default mongoose.model<AdminSchema>('Admin', adminSchema);

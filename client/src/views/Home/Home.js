@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Navbar from '../../commons/Navbar/Navbar';
 import Herotext from '../../components/Herotext/Herotext';
+import HeroImage from '../../components/Heroimage/HeroImage';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <Content>
           <Hero>
             <Herotext />
+            <HeroImage />
           </Hero>
         </Content>
       </Container>
@@ -23,6 +25,7 @@ const Container = styled.div`
   width: 100%;
   margin: 0;
   background-image: url(./assets/hero-bg.png);
+  background-size: cover;
 `;
 const Content = styled.div`
   display: flex;

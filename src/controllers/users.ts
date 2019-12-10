@@ -21,3 +21,13 @@ export async function addUser(userObj: iUser) {
 export async function removeUser(id: string) {
   return Users.findOneAndUpdate({ _id: id }, { deletedAt: new Date() });
 }
+
+// get a user
+export async function getUser(id: string) {
+  return await Users.findOne({ _id: id, deletedAt: null });
+}
+
+// get all users
+export async function getAllUsers() {
+  return await Users.find({});
+}

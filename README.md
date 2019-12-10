@@ -2,6 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/bondz/node-express-react-ts.svg?style=svg)](https://circleci.com/gh/bondz/node-express-react-ts)
 
+Clone the repository
+
 Run the server with
 
 ```bash
@@ -21,6 +23,39 @@ yarn start
 
 ---
 
-The server part of this system is already designed and exposes a set of REST endpoints via the `/api` route and a GraphQL endpoint.
+You can choose to create an offline or online database but it has to be indicated in bin/www
 
-The client has been setup to consume graphql if you chose to use that instead.
+```javascript
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
+```
+
+---
+
+- API Endpoints
+
+  - Create Account
+
+  `/api/v1/users/signup method: 'POST'`
+
+  - Close Account
+
+  `/api/v1/users/signup method: 'PATCH'`
+
+  - Get a user
+
+  `/api/v1/users/:id method: 'GET'`
+
+  - Get all users
+
+  `/api/v1/users method: 'GET'`
+
+  - Admin Login
+
+  `/api/v1/users/admin/login method: 'POST'`
+
+The client side was generated using `create-react-app`

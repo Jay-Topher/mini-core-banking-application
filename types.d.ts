@@ -7,3 +7,12 @@ export type iUser = {
   userName: string;
   isVerified: boolean;
 };
+
+export type iAccount = {
+  bvnId: string;
+  accountType: string;
+  accountNumber: string;
+  accountName: string;
+  userId: string;
+  accountBalance: number;
+};

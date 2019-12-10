@@ -9,9 +9,9 @@ export default function Navbar() {
         <img src="./assets/renmoney.png" alt="renmoney" />
       </div>
 
-      <div role="button" className={classes.btn}>
-        Get Started
-      </div>
+      <Link to="/signup">
+        <button className={classes.btn}>Get Started</button>
+      </Link>
     </div>
   );
 }

@@ -16,3 +16,17 @@ export type iAccount = {
   userId: string;
   accountBalance: number;
 };
+
+export type iBvn = {
+  userId: string;
+  bvn: string;
+};
+
+export type iTransaction = {
+  transactionType: string;
+  amount: number;
+  previousAmount: number;
+  currentAmount: number;
+  from: string;
+  to: string;
+};

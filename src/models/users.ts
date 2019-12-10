@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 interface UserSchema extends mongoose.Document {
   firstName: string;
@@ -26,5 +27,12 @@ const userSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
+
+userSchema.pre<UserSchema>('save', function(next) {
+  if (this.isModified('password')) {
+    this.password = bcrypt.hashSync(this.password, 10);
+  }
+  next();
+});
 
 export default mongoose.model<UserSchema>('Users', userSchema);

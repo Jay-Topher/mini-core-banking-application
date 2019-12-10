@@ -6,6 +6,7 @@ import Home from './views/Home/Home';
 import SignUpForm from './views/Signup/SignupForm';
 import SignUp from './views/Signup/SignUp';
 import LoginPage from './views/Login/Login';
+import Dashboard from './views/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path="/signup" component={SignUp} />
       <Route path="/login" component={LoginPage} />
+      <Route path="/dashboard" component={Dashboard} />
+
       {/* <Route path="/profile" component={Dashboard} />
       <Route path="/tasks" component={Dashboard} />
       <Route path="/team" component={Dashboard} /> */}

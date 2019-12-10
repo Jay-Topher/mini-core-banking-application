@@ -3,6 +3,7 @@ import { addUser } from '../controllers/users';
 import { iUser, iAccount } from '../../types';
 import { addBvn } from '../controllers/bvn';
 import { openAccount } from '../controllers/accounts';
+import { loginAdmin } from '../controllers/admin';
 
 const router = Router();
 
@@ -53,6 +54,24 @@ router.post('/signup', async (req, res) => {
     res.status(200).json({ data: doc.toJSON(), newBvn, newAccount });
   } catch (error) {
     res.status(400).json({ message: error });
+  }
+});
+
+router.post('/admin/login', async (req, res) => {
+  const { userName, password } = req.body;
+
+  if (!userName || !password) {
+    res.status(400).json({ message: 'Invalid username or password' });
+
+    return;
+  }
+
+  try {
+    const doc = await loginAdmin(userName, password);
+    const { status, message, payload, token } = doc;
+    res.status(status).json({ message, payload, token });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
